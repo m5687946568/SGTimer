@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using Windows.Storage;
 
 namespace SGTimer
 {

@@ -130,6 +130,113 @@ namespace SGTimer
             label7.Text = "P6：" + FSec(P6seconds);
         }
 
+        private static string FSec(int sec)
+        {
+            if (sec < 60)
+            {
+                return $"{sec} 秒";
+            }
+            else if (sec < 3600)
+            {
+                int minutes = sec / 60;
+                int seconds = sec % 60;
+                return $"{minutes} 分 {seconds} 秒";
+            }
+            else
+            {
+                int hours = sec / 3600;
+                int minutes = (sec % 3600) / 60;
+                int seconds = sec % 60;
+                return $"{hours} 小時 {minutes} 分 {seconds} 秒";
+            }
+        }
+                
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            iniRead();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int Wsec = (int)numericUpDown1.Value;
+
+            Tseconds++;
+            groupBox1.Text = "時間：" + FSec(Tseconds);
+
+            P1seconds--;
+            if (P1seconds >= 0) label2.Text = "P1：" + FSec(P1seconds);
+            if (P1seconds == Wsec && checkBox1.Checked)
+            {
+                //new ToastContentBuilder()
+                //    .AddText("P1")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                 NotificationForm.ShowNotification("Ｐ1");
+            }
+
+            P2seconds--;
+            if (P2seconds >= 0) label3.Text = "P2：" + FSec(P2seconds);
+            if (P2seconds == Wsec && checkBox1.Checked)
+            {
+                //new ToastContentBuilder()
+                //    .AddText("P2")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ2");
+            }
+
+            P3seconds--;
+            if (P3seconds >= 0) label4.Text = "P3：" + FSec(P3seconds);
+            if (P3seconds == Wsec && checkBox1.Checked)
+            {
+                //new ToastContentBuilder()
+                //    .AddText("P3")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ3");
+            }
+
+            P4seconds--;
+            if (P4seconds >= 0) label5.Text = "P4：" + FSec(P4seconds);
+            if (P4seconds == Wsec && checkBox1.Checked)
+            {
+                //new ToastContentBuilder()
+                //    .AddText("P4")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ4");
+            }
+
+            P5seconds--;
+            if (P5seconds >= 0) label6.Text = "P5：" + FSec(P5seconds);
+            if (P5seconds == Wsec && checkBox1.Checked)
+            {
+                //new ToastContentBuilder()
+                //    .AddText("P5")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ5");
+            }
+
+            P6seconds--;
+            if (P6seconds >= 0) label7.Text = "P6：" + FSec(P6seconds);
+            if (P6seconds == Wsec && checkBox1.Checked)
+            {
+                //MessageBox.Show("P6", "P6", MessageBoxButtons.OK);
+                //new ToastContentBuilder()
+                //    .AddText("P6")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ6");
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (timer1.Enabled)
@@ -154,133 +261,6 @@ namespace SGTimer
             iniSave();
             reset();
             tabControl1.SelectedIndex = 0;
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            iniRead();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            int Wsec = (int)numericUpDown1.Value;
-
-            Tseconds++;
-            groupBox1.Text = "時間：" + FSec(Tseconds);
-
-            P1seconds--;
-            if (P1seconds >= 0) label2.Text = "P1：" + FSec(P1seconds);
-            if (P1seconds == Wsec && checkBox1.Checked)
-            {
-                //MessageBox.Show("P1", "P1", MessageBoxButtons.OK);
-                //new ToastContentBuilder()
-                //    .AddText("P1")
-                //    .AddButton(new ToastButton().SetContent("確定"))
-                //    .SetToastScenario(ToastScenario.Reminder)
-                //    .Show();
-                 NotificationForm.ShowNotification("Ｐ1");
-            }
-
-            P2seconds--;
-            if (P2seconds >= 0) label3.Text = "P2：" + FSec(P2seconds);
-            if (P2seconds == Wsec && checkBox1.Checked)
-            {
-                //MessageBox.Show("P2", "P2", MessageBoxButtons.OK);
-                //new ToastContentBuilder()
-                //    .AddText("P2")
-                //    .AddButton(new ToastButton().SetContent("確定"))
-                //    .SetToastScenario(ToastScenario.Reminder)
-                //    .Show();
-                NotificationForm.ShowNotification("Ｐ2");
-            }
-
-            P3seconds--;
-            if (P3seconds >= 0) label4.Text = "P3：" + FSec(P3seconds);
-            if (P3seconds == Wsec && checkBox1.Checked)
-            {
-                //MessageBox.Show("P3", "P3", MessageBoxButtons.OK);
-                //new ToastContentBuilder()
-                //    .AddText("P3")
-                //    .AddButton(new ToastButton().SetContent("確定"))
-                //    .SetToastScenario(ToastScenario.Reminder)
-                //    .Show();
-                NotificationForm.ShowNotification("Ｐ3");
-            }
-
-            P4seconds--;
-            if (P4seconds >= 0) label5.Text = "P4：" + FSec(P4seconds);
-            if (P4seconds == Wsec && checkBox1.Checked)
-            {
-                //MessageBox.Show("P4", "P4", MessageBoxButtons.OK);
-                //new ToastContentBuilder()
-                //    .AddText("P4")
-                //    .AddButton(new ToastButton().SetContent("確定"))
-                //    .SetToastScenario(ToastScenario.Reminder)
-                //    .Show();
-                NotificationForm.ShowNotification("Ｐ4");
-            }
-
-            P5seconds--;
-            if (P5seconds >= 0) label6.Text = "P5：" + FSec(P5seconds);
-            if (P5seconds == Wsec && checkBox1.Checked)
-            {
-                //MessageBox.Show("P5", "P5", MessageBoxButtons.OK);
-                //new ToastContentBuilder()
-                //    .AddText("P5")
-                //    .AddButton(new ToastButton().SetContent("確定"))
-                //    .SetToastScenario(ToastScenario.Reminder)
-                //    .Show();
-                NotificationForm.ShowNotification("Ｐ5");
-            }
-
-            P6seconds--;
-            if (P6seconds >= 0) label7.Text = "P6：" + FSec(P6seconds);
-            if (P6seconds == Wsec && checkBox1.Checked)
-            {
-                //MessageBox.Show("P6", "P6", MessageBoxButtons.OK);
-                //new ToastContentBuilder()
-                //    .AddText("P6")
-                //    .AddButton(new ToastButton().SetContent("確定"))
-                //    .SetToastScenario(ToastScenario.Reminder)
-                //    .Show();
-                NotificationForm.ShowNotification("Ｐ6");
-            }
-        }
-
-        private static NotificationForm previousInstance;
-
-        public static void ShowNotification(string message)
-        {
-            // 關閉前一個通知
-            if (previousInstance != null && !previousInstance.IsDisposed)
-            {
-                previousInstance.Close();
-            }
-
-            // 建立並顯示新通知
-            previousInstance = new NotificationForm(message);
-            previousInstance.Show();
-        }
-
-        private static string FSec(int sec)
-        {
-            if (sec < 60)
-            {
-                return $"{sec} 秒";
-            }
-            else if (sec < 3600)
-            {
-                int minutes = sec / 60;
-                int seconds = sec % 60;
-                return $"{minutes} 分 {seconds} 秒";
-            }
-            else
-            {
-                int hours = sec / 3600;
-                int minutes = (sec % 3600) / 60;
-                int seconds = sec % 60;
-                return $"{hours} 小時 {minutes} 分 {seconds} 秒";
-            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)

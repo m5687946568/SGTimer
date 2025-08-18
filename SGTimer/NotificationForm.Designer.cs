@@ -53,10 +53,11 @@
             // closeTimer
             // 
             closeTimer.Interval = 3000;
+            closeTimer.Tick += closeTimer_Tick;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.LightBlue;
+            pictureBox1.BackColor = Color.LightSkyBlue;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = Properties.Resources.Clock;
             pictureBox1.Location = new Point(0, 0);
@@ -85,6 +86,7 @@
             StartPosition = FormStartPosition.Manual;
             Text = "NotificationForm";
             TopMost = true;
+            Load += NotificationForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

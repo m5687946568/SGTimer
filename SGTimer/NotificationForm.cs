@@ -28,9 +28,6 @@ namespace SGTimer
         {
             InitializeComponent();
 
-            //點擊穿透
-            this.Load += (s, e) => EnableClickThrough();
-
             //撥放音效
             SoundPlayer player = new SoundPlayer(Resources.WindowsNotifySystemGeneric);
             player.Play();
@@ -47,21 +44,17 @@ namespace SGTimer
             //    );
 
             // 設定自動關閉
-            closeTimer.Interval = 5000;
-            closeTimer.Tick += (s, e) => { closeTimer.Stop(); this.Close(); };
+            closeTimer.Interval = 5 * 1000;
             closeTimer.Start();
         }
 
+        //點擊穿透
         private void EnableClickThrough()
         {
-            int exStyle = GetWindowLong(this.Handle, GWL_EXSTYLE);
-            exStyle |= WS_EX_LAYERED | WS_EX_TRANSPARENT;
-            SetWindowLong(this.Handle, GWL_EXSTYLE, exStyle);
+            int exStyle = GetWindowLong(this.Handle, -20);
+            exStyle |= 0x80000 | 0x20;
+            SetWindowLong(this.Handle, -20, exStyle);
         }
-
-        private const int GWL_EXSTYLE = -20;
-        private const int WS_EX_LAYERED = 0x80000;
-        private const int WS_EX_TRANSPARENT = 0x20;
 
         [DllImport("user32.dll")]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
@@ -69,6 +62,17 @@ namespace SGTimer
         [DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
+
+        private void NotificationForm_Load(object sender, EventArgs e)
+        {
+            EnableClickThrough();
+        }
+
+        private void closeTimer_Tick(object sender, EventArgs e)
+        {
+            closeTimer.Stop();
+            this.Close();
+        }
     }
 
 }
