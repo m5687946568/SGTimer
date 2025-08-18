@@ -1,5 +1,5 @@
 using static SGTimer.INIFunction;
-using Microsoft.Toolkit.Uwp.Notifications;
+//using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace SGTimer
 {
@@ -25,7 +25,6 @@ namespace SGTimer
             {
                 iniRead();
             }
-
             reset();
 
         }
@@ -174,11 +173,12 @@ namespace SGTimer
             if (P1seconds == Wsec && checkBox1.Checked)
             {
                 //MessageBox.Show("P1", "P1", MessageBoxButtons.OK);
-                new ToastContentBuilder()
-                    .AddText("P1")
-                    .AddButton(new ToastButton().SetContent("確定"))
-                    .SetToastScenario(ToastScenario.Reminder)
-                    .Show();
+                //new ToastContentBuilder()
+                //    .AddText("P1")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                 NotificationForm.ShowNotification("Ｐ1");
             }
 
             P2seconds--;
@@ -186,11 +186,12 @@ namespace SGTimer
             if (P2seconds == Wsec && checkBox1.Checked)
             {
                 //MessageBox.Show("P2", "P2", MessageBoxButtons.OK);
-                new ToastContentBuilder()
-                    .AddText("P2")
-                    .AddButton(new ToastButton().SetContent("確定"))
-                    .SetToastScenario(ToastScenario.Reminder)
-                    .Show();
+                //new ToastContentBuilder()
+                //    .AddText("P2")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ2");
             }
 
             P3seconds--;
@@ -198,11 +199,12 @@ namespace SGTimer
             if (P3seconds == Wsec && checkBox1.Checked)
             {
                 //MessageBox.Show("P3", "P3", MessageBoxButtons.OK);
-                new ToastContentBuilder()
-                    .AddText("P3")
-                    .AddButton(new ToastButton().SetContent("確定"))
-                    .SetToastScenario(ToastScenario.Reminder)
-                    .Show();
+                //new ToastContentBuilder()
+                //    .AddText("P3")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ3");
             }
 
             P4seconds--;
@@ -210,11 +212,12 @@ namespace SGTimer
             if (P4seconds == Wsec && checkBox1.Checked)
             {
                 //MessageBox.Show("P4", "P4", MessageBoxButtons.OK);
-                new ToastContentBuilder()
-                    .AddText("P4")
-                    .AddButton(new ToastButton().SetContent("確定"))
-                    .SetToastScenario(ToastScenario.Reminder)
-                    .Show();
+                //new ToastContentBuilder()
+                //    .AddText("P4")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ4");
             }
 
             P5seconds--;
@@ -222,11 +225,12 @@ namespace SGTimer
             if (P5seconds == Wsec && checkBox1.Checked)
             {
                 //MessageBox.Show("P5", "P5", MessageBoxButtons.OK);
-                new ToastContentBuilder()
-                    .AddText("P5")
-                    .AddButton(new ToastButton().SetContent("確定"))
-                    .SetToastScenario(ToastScenario.Reminder)
-                    .Show();
+                //new ToastContentBuilder()
+                //    .AddText("P5")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ5");
             }
 
             P6seconds--;
@@ -234,12 +238,28 @@ namespace SGTimer
             if (P6seconds == Wsec && checkBox1.Checked)
             {
                 //MessageBox.Show("P6", "P6", MessageBoxButtons.OK);
-                new ToastContentBuilder()
-                    .AddText("P6")
-                    .AddButton(new ToastButton().SetContent("確定"))
-                    .SetToastScenario(ToastScenario.Reminder)
-                    .Show();
+                //new ToastContentBuilder()
+                //    .AddText("P6")
+                //    .AddButton(new ToastButton().SetContent("確定"))
+                //    .SetToastScenario(ToastScenario.Reminder)
+                //    .Show();
+                NotificationForm.ShowNotification("Ｐ6");
             }
+        }
+
+        private static NotificationForm previousInstance;
+
+        public static void ShowNotification(string message)
+        {
+            // 關閉前一個通知
+            if (previousInstance != null && !previousInstance.IsDisposed)
+            {
+                previousInstance.Close();
+            }
+
+            // 建立並顯示新通知
+            previousInstance = new NotificationForm(message);
+            previousInstance.Show();
         }
 
         private static string FSec(int sec)
