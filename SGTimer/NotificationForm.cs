@@ -6,8 +6,9 @@ namespace SGTimer
 {
     public partial class NotificationForm : Form
     {
-
         private static NotificationForm notificationForm;
+        private bool isFadingIn;
+
         public static void ShowNotification(string message)
         {
             // 若已有通知視窗，則關閉
@@ -71,8 +72,39 @@ namespace SGTimer
         private void closeTimer_Tick(object sender, EventArgs e)
         {
             closeTimer.Stop();
-            this.Close();
+            isFadingIn = false;
+            fadeTimer.Start();
         }
+
+        private void fadeTimer_Tick(object sender, EventArgs e)
+        {
+            if (isFadingIn)
+            {
+                this.Opacity += 0.1;
+                if (this.Opacity >= 0.9)
+                {
+                    this.Opacity = 0.9;
+                    fadeTimer.Stop();
+                }
+            }
+            else
+            {
+                this.Opacity -= 0.1;
+                if (this.Opacity <= 0)
+                {
+                    this.Opacity = 0;
+                    fadeTimer.Stop();
+                    this.Close(); // 淡出後關閉視窗
+                }
+            }
+        }
+
+        private void NotificationForm_Shown(object sender, EventArgs e)
+        {
+            isFadingIn = true;
+            fadeTimer.Start();
+        }
+
     }
 
 }

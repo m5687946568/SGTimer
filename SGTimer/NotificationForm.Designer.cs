@@ -33,6 +33,7 @@
             lbl = new Label();
             closeTimer = new System.Windows.Forms.Timer(components);
             pictureBox1 = new PictureBox();
+            fadeTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -68,6 +69,11 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
+            // fadeTimer
+            // 
+            fadeTimer.Interval = 50;
+            fadeTimer.Tick += fadeTimer_Tick;
+            // 
             // NotificationForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -81,12 +87,13 @@
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             Name = "NotificationForm";
-            Opacity = 0.9D;
+            Opacity = 0D;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.Manual;
             Text = "NotificationForm";
             TopMost = true;
             Load += NotificationForm_Load;
+            Shown += NotificationForm_Shown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -96,5 +103,6 @@
         private Label lbl;
         private System.Windows.Forms.Timer closeTimer;
         private PictureBox pictureBox1;
+        private System.Windows.Forms.Timer fadeTimer;
     }
 }
