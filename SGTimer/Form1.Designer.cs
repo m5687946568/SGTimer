@@ -44,10 +44,6 @@
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
             button3 = new Button();
-            checkBox2 = new CheckBox();
-            numericUpDown1 = new NumericUpDown();
-            label15 = new Label();
-            checkBox1 = new CheckBox();
             label16 = new Label();
             label14 = new Label();
             label13 = new Label();
@@ -75,11 +71,32 @@
             label9 = new Label();
             label8 = new Label();
             label1 = new Label();
+            tabPage3 = new TabPage();
+            groupBox2 = new GroupBox();
+            label22 = new Label();
+            textBox6 = new TextBox();
+            label21 = new Label();
+            textBox5 = new TextBox();
+            label20 = new Label();
+            textBox4 = new TextBox();
+            label19 = new Label();
+            textBox3 = new TextBox();
+            label18 = new Label();
+            textBox2 = new TextBox();
+            label17 = new Label();
+            textBox1 = new TextBox();
+            checkBox3 = new CheckBox();
+            button4 = new Button();
+            numericUpDown1 = new NumericUpDown();
+            checkBox1 = new CheckBox();
+            label15 = new Label();
+            tabPage4 = new TabPage();
+            checkBox2 = new CheckBox();
+            button5 = new Button();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nud_P6_S).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nud_P6_M).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nud_P6_H).BeginInit();
@@ -98,6 +115,10 @@
             ((System.ComponentModel.ISupportInitialize)nud_P1_S).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nud_P1_M).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nud_P1_H).BeginInit();
+            tabPage3.SuspendLayout();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // label2
@@ -213,6 +234,8 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Multiline = true;
@@ -238,10 +261,6 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(button3);
-            tabPage2.Controls.Add(checkBox2);
-            tabPage2.Controls.Add(numericUpDown1);
-            tabPage2.Controls.Add(label15);
-            tabPage2.Controls.Add(checkBox1);
             tabPage2.Controls.Add(label16);
             tabPage2.Controls.Add(label14);
             tabPage2.Controls.Add(label13);
@@ -274,7 +293,7 @@
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(228, 280);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "設定";
+            tabPage2.Text = "時間設定";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -286,46 +305,6 @@
             button3.Text = "儲存設定";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(22, 240);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(50, 19);
-            checkBox2.TabIndex = 30;
-            checkBox2.Text = "置頂";
-            checkBox2.UseVisualStyleBackColor = true;
-            checkBox2.CheckedChanged += checkBox2_CheckedChanged;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown1.Location = new Point(43, 211);
-            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(55, 23);
-            numericUpDown1.TabIndex = 29;
-            numericUpDown1.TextAlign = HorizontalAlignment.Center;
-            numericUpDown1.Value = new decimal(new int[] { 15, 0, 0, 0 });
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(104, 214);
-            label15.Name = "label15";
-            label15.Size = new Size(43, 15);
-            label15.TabIndex = 28;
-            label15.Text = "秒提醒";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(22, 215);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
-            checkBox1.TabIndex = 27;
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -575,6 +554,249 @@
             label1.TabIndex = 0;
             label1.Text = "時";
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(groupBox2);
+            tabPage3.Controls.Add(checkBox3);
+            tabPage3.Controls.Add(button4);
+            tabPage3.Controls.Add(numericUpDown1);
+            tabPage3.Controls.Add(checkBox1);
+            tabPage3.Controls.Add(label15);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(228, 280);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "通知設定";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label22);
+            groupBox2.Controls.Add(textBox6);
+            groupBox2.Controls.Add(label21);
+            groupBox2.Controls.Add(textBox5);
+            groupBox2.Controls.Add(label20);
+            groupBox2.Controls.Add(textBox4);
+            groupBox2.Controls.Add(label19);
+            groupBox2.Controls.Add(textBox3);
+            groupBox2.Controls.Add(label18);
+            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(label17);
+            groupBox2.Controls.Add(textBox1);
+            groupBox2.Enabled = false;
+            groupBox2.Location = new Point(8, 35);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(212, 195);
+            groupBox2.TabIndex = 49;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "通知訊息";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(6, 19);
+            label22.Name = "label22";
+            label22.Size = new Size(21, 15);
+            label22.TabIndex = 36;
+            label22.Text = "P1";
+            // 
+            // textBox6
+            // 
+            textBox6.BorderStyle = BorderStyle.FixedSingle;
+            textBox6.Location = new Point(33, 162);
+            textBox6.MaxLength = 10;
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(150, 23);
+            textBox6.TabIndex = 48;
+            textBox6.Text = "Ｐ６ 的通知";
+            textBox6.WordWrap = false;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(6, 48);
+            label21.Name = "label21";
+            label21.Size = new Size(21, 15);
+            label21.TabIndex = 37;
+            label21.Text = "P2";
+            // 
+            // textBox5
+            // 
+            textBox5.BorderStyle = BorderStyle.FixedSingle;
+            textBox5.Location = new Point(33, 133);
+            textBox5.MaxLength = 10;
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(150, 23);
+            textBox5.TabIndex = 47;
+            textBox5.Text = "Ｐ５ 的通知";
+            textBox5.WordWrap = false;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(6, 77);
+            label20.Name = "label20";
+            label20.Size = new Size(21, 15);
+            label20.TabIndex = 38;
+            label20.Text = "P3";
+            // 
+            // textBox4
+            // 
+            textBox4.BorderStyle = BorderStyle.FixedSingle;
+            textBox4.Location = new Point(33, 104);
+            textBox4.MaxLength = 10;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(150, 23);
+            textBox4.TabIndex = 46;
+            textBox4.Text = "Ｐ４ 的通知";
+            textBox4.WordWrap = false;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(6, 106);
+            label19.Name = "label19";
+            label19.Size = new Size(21, 15);
+            label19.TabIndex = 39;
+            label19.Text = "P4";
+            // 
+            // textBox3
+            // 
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
+            textBox3.Location = new Point(33, 75);
+            textBox3.MaxLength = 10;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(150, 23);
+            textBox3.TabIndex = 45;
+            textBox3.Text = "Ｐ３ 的通知";
+            textBox3.WordWrap = false;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(6, 135);
+            label18.Name = "label18";
+            label18.Size = new Size(21, 15);
+            label18.TabIndex = 40;
+            label18.Text = "P5";
+            // 
+            // textBox2
+            // 
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
+            textBox2.Location = new Point(33, 46);
+            textBox2.MaxLength = 10;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(150, 23);
+            textBox2.TabIndex = 44;
+            textBox2.Text = "Ｐ２的通知";
+            textBox2.WordWrap = false;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(6, 164);
+            label17.Name = "label17";
+            label17.Size = new Size(21, 15);
+            label17.TabIndex = 41;
+            label17.Text = "P6";
+            // 
+            // textBox1
+            // 
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Location = new Point(33, 17);
+            textBox1.MaxLength = 10;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(150, 23);
+            textBox1.TabIndex = 43;
+            textBox1.Text = "Ｐ１的通知";
+            textBox1.WordWrap = false;
+            // 
+            // checkBox3
+            // 
+            checkBox3.AutoSize = true;
+            checkBox3.Enabled = false;
+            checkBox3.Location = new Point(90, 10);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new Size(62, 19);
+            checkBox3.TabIndex = 42;
+            checkBox3.Text = "通知聲";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(140, 242);
+            button4.Name = "button4";
+            button4.Size = new Size(80, 30);
+            button4.TabIndex = 32;
+            button4.Text = "儲存設定";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button3_Click;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
+            numericUpDown1.Enabled = false;
+            numericUpDown1.Location = new Point(31, 252);
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(75, 23);
+            numericUpDown1.TabIndex = 35;
+            numericUpDown1.TextAlign = HorizontalAlignment.Center;
+            numericUpDown1.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(10, 10);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(74, 19);
+            checkBox1.TabIndex = 33;
+            checkBox1.Text = "開啟通知";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Enabled = false;
+            label15.Location = new Point(31, 234);
+            label15.Name = "label15";
+            label15.Size = new Size(75, 15);
+            label15.TabIndex = 34;
+            label15.Text = "提前通知(秒)";
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(checkBox2);
+            tabPage4.Controls.Add(button5);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(228, 280);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "其他設定";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new Point(10, 10);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(50, 19);
+            checkBox2.TabIndex = 33;
+            checkBox2.Text = "置頂";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(140, 242);
+            button5.Name = "button5";
+            button5.Size = new Size(80, 30);
+            button5.TabIndex = 32;
+            button5.Text = "儲存設定";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -592,7 +814,6 @@
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nud_P6_S).EndInit();
             ((System.ComponentModel.ISupportInitialize)nud_P6_M).EndInit();
             ((System.ComponentModel.ISupportInitialize)nud_P6_H).EndInit();
@@ -611,6 +832,13 @@
             ((System.ComponentModel.ISupportInitialize)nud_P1_S).EndInit();
             ((System.ComponentModel.ISupportInitialize)nud_P1_M).EndInit();
             ((System.ComponentModel.ISupportInitialize)nud_P1_H).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -655,10 +883,28 @@
         private NumericUpDown nud_P5_S;
         private NumericUpDown nud_P5_M;
         private NumericUpDown nud_P5_H;
-        private CheckBox checkBox2;
+        private Button button3;
+        private TabPage tabPage3;
         private NumericUpDown numericUpDown1;
         private Label label15;
         private CheckBox checkBox1;
-        private Button button3;
+        private Button button4;
+        private TabPage tabPage4;
+        private CheckBox checkBox2;
+        private Button button5;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private TextBox textBox1;
+        private CheckBox checkBox3;
+        private TextBox textBox6;
+        private TextBox textBox5;
+        private TextBox textBox4;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private GroupBox groupBox2;
     }
 }

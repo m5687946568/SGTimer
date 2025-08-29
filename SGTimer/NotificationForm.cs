@@ -29,10 +29,6 @@ namespace SGTimer
         {
             InitializeComponent();
 
-            //撥放音效
-            SoundPlayer player = new SoundPlayer(Resources.WindowsNotifySystemGeneric);
-            player.Play();
-
             //顯示內容
             lbl.Text = message;
 

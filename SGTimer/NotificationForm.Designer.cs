@@ -41,7 +41,7 @@
             // 
             lbl.BackColor = Color.LightBlue;
             lbl.BorderStyle = BorderStyle.FixedSingle;
-            lbl.Font = new Font("Microsoft JhengHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            lbl.Font = new Font("Microsoft JhengHei UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 136);
             lbl.ForeColor = Color.Black;
             lbl.Location = new Point(50, 0);
             lbl.Margin = new Padding(0);

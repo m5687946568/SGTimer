@@ -1,3 +1,5 @@
+using SGTimer.Properties;
+using System.Media;
 using static SGTimer.INIFunction;
 //using Microsoft.Toolkit.Uwp.Notifications;
 
@@ -12,6 +14,7 @@ namespace SGTimer
             P4seconds,
             P5seconds,
             P6seconds;
+        private SoundPlayer player = new SoundPlayer(Resources.WindowsNotifySystemGeneric);
 
         public Form1()
         {
@@ -53,7 +56,15 @@ namespace SGTimer
 
             WPPS("Time", "NotificationTime", numericUpDown1.Value.ToString());
 
+            WPPS("Text", "P1Text", textBox1.Text);
+            WPPS("Text", "P2Text", textBox2.Text);
+            WPPS("Text", "P3Text", textBox3.Text);
+            WPPS("Text", "P4Text", textBox4.Text);
+            WPPS("Text", "P5Text", textBox5.Text);
+            WPPS("Text", "P6Text", textBox6.Text);
+
             WPPS("Switch", "NotificationTime", checkBox1.Checked.ToString());
+            WPPS("Switch", "NotificationSound", checkBox3.Checked.ToString());
             WPPS("Switch", "OnTop", checkBox2.Checked.ToString());
         }
 
@@ -80,7 +91,15 @@ namespace SGTimer
 
             SetNumericValue(numericUpDown1, GPPS("Time", "NotificationTime"));
 
+            textBox1.Text = GPPS("Text", "P1Text");
+            textBox2.Text = GPPS("Text", "P2Text");
+            textBox3.Text = GPPS("Text", "P3Text");
+            textBox4.Text = GPPS("Text", "P4Text");
+            textBox5.Text = GPPS("Text", "P5Text");
+            textBox6.Text = GPPS("Text", "P6Text");
+
             checkBox1.Checked = ParseBool(GPPS("Switch", "NotificationTime"));
+            checkBox3.Checked = ParseBool(GPPS("Switch", "NotificationSound"));
             checkBox2.Checked = ParseBool(GPPS("Switch", "OnTop"));
         }
 
@@ -150,7 +169,7 @@ namespace SGTimer
                 return $"{hours} 小時 {minutes} 分 {seconds} 秒";
             }
         }
-                
+
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             iniRead();
@@ -172,7 +191,8 @@ namespace SGTimer
                 //    .AddButton(new ToastButton().SetContent("確定"))
                 //    .SetToastScenario(ToastScenario.Reminder)
                 //    .Show();
-                 NotificationForm.ShowNotification("Ｐ1");
+                if (checkBox3.Checked) player.Play();
+                NotificationForm.ShowNotification(textBox1.Text);
             }
 
             P2seconds--;
@@ -184,7 +204,8 @@ namespace SGTimer
                 //    .AddButton(new ToastButton().SetContent("確定"))
                 //    .SetToastScenario(ToastScenario.Reminder)
                 //    .Show();
-                NotificationForm.ShowNotification("Ｐ2");
+                if (checkBox3.Checked) player.Play();
+                NotificationForm.ShowNotification(textBox2.Text);
             }
 
             P3seconds--;
@@ -196,7 +217,8 @@ namespace SGTimer
                 //    .AddButton(new ToastButton().SetContent("確定"))
                 //    .SetToastScenario(ToastScenario.Reminder)
                 //    .Show();
-                NotificationForm.ShowNotification("Ｐ3");
+                if (checkBox3.Checked) player.Play();
+                NotificationForm.ShowNotification(textBox3.Text);
             }
 
             P4seconds--;
@@ -208,7 +230,8 @@ namespace SGTimer
                 //    .AddButton(new ToastButton().SetContent("確定"))
                 //    .SetToastScenario(ToastScenario.Reminder)
                 //    .Show();
-                NotificationForm.ShowNotification("Ｐ4");
+                if (checkBox3.Checked) player.Play();
+                NotificationForm.ShowNotification(textBox4.Text);
             }
 
             P5seconds--;
@@ -220,7 +243,8 @@ namespace SGTimer
                 //    .AddButton(new ToastButton().SetContent("確定"))
                 //    .SetToastScenario(ToastScenario.Reminder)
                 //    .Show();
-                NotificationForm.ShowNotification("Ｐ5");
+                if (checkBox3.Checked) player.Play();
+                NotificationForm.ShowNotification(textBox5.Text);
             }
 
             P6seconds--;
@@ -233,7 +257,8 @@ namespace SGTimer
                 //    .AddButton(new ToastButton().SetContent("確定"))
                 //    .SetToastScenario(ToastScenario.Reminder)
                 //    .Show();
-                NotificationForm.ShowNotification("Ｐ6");
+                if (checkBox3.Checked) player.Play();
+                NotificationForm.ShowNotification(textBox6.Text);
             }
         }
 
@@ -274,8 +299,25 @@ namespace SGTimer
                 this.TopMost = false;
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                checkBox3.Enabled = true;
+                numericUpDown1.Enabled = true;
+                label15.Enabled = true;
+                groupBox2.Enabled = true;
+            }
+            else
+            {
+                checkBox3.Enabled = false;
+                numericUpDown1.Enabled = false;
+                label15.Enabled = false;
+                groupBox2.Enabled = false;
+            }
+        }
+
+
     }
-
-
-
 }
